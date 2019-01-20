@@ -1,0 +1,70 @@
+.addDiscoButton{
+    text-align:center;
+    cursor:pointer;
+}
+.addDiscoButton i.icon{
+    font-size:40px;
+}
+
+.form-check-inline{
+    margin-top:30px;
+}
+
+.agregarDiscoFormContainer .error input{
+    background:#ffc1c1;
+}
+
+.showDetails{
+    cursor:pointer;
+}
+
+.table{
+    display:table;
+}
+
+.table .row{
+    display:table-row;
+}
+
+.table .row .col{
+    display:table-cell;
+    vertical-align:middle;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.pista .handler {
+    width: 10px;
+    padding: 0;
+    cursor:move;
+}
+.pista .controles {
+    width: 10px;
+    padding: 0;
+}
+
+.pista .error input[type=text]{
+    background:#ffc1c1;
+}
+
+.pista.nuevo .nuevoHidden{
+    display:none;
+}
+
+.pista.saved .savedHidden{
+    display:none;
+}
+
+#discView .card-header .controles{
+    text-align:right;
+    margin-bottom:-40px;
+}
+
+.cardInfo{
+    position:absolute;
+    box-shadow:2px 2px 5px #666;
+    border: 1px solid #000;
+    z-index:100;
+    font-size:12px;
+}

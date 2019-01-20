@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Disc Manager</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link href="css/jquery-ui.structure.min.css" rel="stylesheet">
+    <link href="css/jquery-ui.theme.min.css" rel="stylesheet">
+    <link href="css/sb-admin.min.css" rel="stylesheet">
+    <link href="css/discos.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top" class="sidebar-toggled">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+      <a class="navbar-brand mr-1" href="index.html">Pay Disc Manager</a>
+
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+
+      <!-- Navbar -->
+
+    </nav>
+
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="sidebar navbar-nav toggled">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-headphones-alt"></i>
+            <span>Albums</span>
+          </a>
+        </li>
+      </ul>
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+          <div class="row" >
+              <div class="col" id="discView">
+                  <div class="card bg-primary  text-white mb-3">
+                      <div class="card-header">
+                          <div class="controles">
+                              <a class="btn" id="showInfo"><i class="icon fas fa-info"></i></a>
+                              <div class="card cardInfo bg-primary text-align-left" style="display:none">
+                                  <div class="card-body">
+                                      <div>
+                                          <b>Título :</b><span class="titulo"></span>
+                                      </div>
+                                      <div>
+                                          <b>Autor :</b><span class="nombreAutor"></span>
+                                      </div>
+                                      <div>
+                                          <b>Publicación :</b><span class="fechaPublicacion"></span>
+                                      </div>
+                                      <div>
+                                          <b>Alta :</b><span class="fechaAlta"></span>
+                                      </div>
+                                      <div>
+                                          <b>Activo :</b><span class="activo"></span>
+                                      </div>
+                                      <div>
+                                          <b>Contenido Adicional :</b><span class="materialAdicional"></span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <a class="btn" title="Cerrar Detalles" id="cerrarDetalles"><i class="icon fas fa-times"></i></a>
+                          </div>
+                          <div>
+                            <i class="fas fa-fw fa-compact-disc icon"></i>
+                            <span class="titulo"></span>
+                          </div>
+                          <div class="blockquote-footer text-white">
+                              <span class="nombreAutor"></span>
+                              ( <span class="fechaPublicacion"></span> )
+                          </div>
+                      </div>
+                      <div class="card-body">
+                          <h4>Pistas</h4>
+                          <div class="pistas table dataTable">
+
+                          </div>
+                          <div class="nuevaPista table dataTable">
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col" id="discList">
+                <div class="row" id="discos">
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-sm-6 mb-3 addDiscoButton" title="Agregar Album" data-toggle="modal" data-target="#addDiscoModal">
+                      <div class="card text-white bg-primary o-hidden h-100">
+                        <div class="card-body">
+                            <i class="fas fa-fw fa-plus icon"></i>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>A Paynalton Creation <i class="fa fa-fw fa-creative-commons-share"></i></span>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+    <div style="display:none" id="models">
+        
+          <div class="col-xl-3 col-sm-6 mb-3 disco">
+            <div class="card text-white bg-primary o-hidden h-100">
+              <div class="card-body">
+                  <div>
+                      <span class="titulo"></span> 
+                    ( <span class="yearPublicacion"></span> )
+                    <sub><span class="pistas"></span> Pistas</sub>
+                  </div>
+                  <div>
+                      <span class="nombreAutor blockquote-footer text-white"></span>
+                  </div>
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-compact-disc icon"></i>
+                  </div>
+              </div>
+                <a class="card-footer text-white clearfix small z-1 showDetails">
+                  <span class="float-left">Detalles</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+            </div>
+          </div>
+        
+        <div class="row pista" role="row">
+            <div class="col col-1 handler nuevoHidden">
+                <i class="icon fas fa-fw fa-grip-vertical"></i>
+            </div>
+            <div class="col col-5 form-group nombreField">
+                <input type="hidden" name="idPista[]">
+                <input type="hidden" name="idAlbum[]">
+                <input type="text" name="nombre[]" placeholder="Título" class="form-control">
+            </div>
+            <div class="col col-6 controles">
+                <a class="btn btn-primary guardarPistaButton nuevoHidden" title="Guardar Pista"><i class="icon fas fa-fw fa-save"></i></a>
+                <a class="btn btn-primary borrarPistaButton nuevoHidden" title="Borrar Pista"><i class="icon fas fa-fw fa-times"></i></a>
+                <a class="btn btn-primary guardarPistaButton savedHidden" title="Guardar Pista"><i class="icon fas fa-fw fa-plus"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addDiscoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar Disco</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col col-10 form-group tituloField">
+                            <label>Título</label>
+                            <input type="text" name="titulo" class="form-control" placeholder="Título del Disco">
+                        </div>
+                        <div class="col col-10 form-group autorField">
+                            <label>Banda</label>
+                            <input type="text" name="autor" class="form-control" placeholder="Banda/Cantante/Autor">
+                        </div>
+                        <div class="col col-5 form-group fechaPublicacionField">
+                            <label>Fecha</label>
+                            <input type="text" name="fechaPublicacion" class="form-control" placeholder="Fecha de Publicación">
+                        </div>
+                        <div class="col form-group form-check-inline materialAdicionalField">
+                            <input type="checkbox" id="Activo" name="materialAdicional" class="form-check-input">
+                            <label for="Activo" class="form-check-label">¿Tiene material adicional?</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary text-white submitButton">Agregar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script src="js/sb-admin.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery-dateformat.min.js"></script>
+    <script src="js/discos.js"></script>
+
+
+  </body>
+
+</html>
